@@ -12,5 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
 });
+
+Route::get('/home', function () {
+    return view('home.index');
+});
+ 
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
+Route::resource('blog', 'BlogController');
+
+// Admin
+Route::get('admin', [
+	'uses' => 'AdminController@admin',
+	'as' => 'admin',
+	'middleware' => 'admin'
+]);

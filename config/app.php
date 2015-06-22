@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://blog.localhost',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', 'vgzmx5B7xRiUTAi3ogFfqa9xhn2SdIY3'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -137,6 +137,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Illuminate\Html\HtmlServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -191,6 +193,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        'Form'      => Illuminate\Html\FormFacade::class,
 
     ],
 

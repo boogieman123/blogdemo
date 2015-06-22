@@ -1,6 +1,4 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -32,4 +30,34 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function posts() 
+    {
+      return $this->hasMany('App\Post');
+    }
+
+    /**
+     * One to Many relation
+     *
+     * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role() 
+    {
+        return $this->belongsTo('App\Role');
+    }
+
+    /**
+     * Check admin role
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role->slug == 'admin';
+    }
 }
